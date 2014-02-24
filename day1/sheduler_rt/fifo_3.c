@@ -59,7 +59,7 @@ int main(void)
                            (void*) message1);
     pthread_setschedparam(thread1, SCHED_FIFO, &parm1);
 
-    sleep(1);
+    //sleep(1);
 
     //===============================================
     pthread_attr_getschedparam(&attr2, &parm2);

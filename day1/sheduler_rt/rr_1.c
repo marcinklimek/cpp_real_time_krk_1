@@ -51,7 +51,7 @@ int main(void)
     /* Create independent threads each of which will execute function */
 
     pthread_attr_getschedparam(&attr1, &parm1);
-    parm1.sched_priority = sched_get_priority_max(SCHED_RR);
+    parm1.sched_priority = sched_get_priority_max(SCHED_RR)-10;
     pthread_attr_setschedpolicy(&attr1, SCHED_RR);
     pthread_attr_setschedparam(&attr1, &parm1);
 

@@ -61,7 +61,7 @@ int main(void)
 
     //===============================================
     pthread_attr_getschedparam(&attr2, &parm2);
-    parm2.sched_priority = sched_get_priority_max(SCHED_RR);
+    parm2.sched_priority = sched_get_priority_max(SCHED_RR)-10;
     pthread_attr_setschedpolicy(&attr2, SCHED_RR);
     pthread_attr_setschedparam(&attr2, &parm2);
 
