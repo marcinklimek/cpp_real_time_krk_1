@@ -39,3 +39,27 @@
     git status  # status lokalnego repozytorium
     git pull    # pobranie plikow z repozytorium
     git stash   # przeniesienie modyfikacji do schowka
+
+
+# usatwienie grupy RT
+
+
+    Aby móc nadawać wątkom priorytety real-time należy obniżyć limity
+    bezpieczeństwa
+
+       twoj_ulubiony_edytor /etc/security/limits.d/99-rt.conf
+
+    w którym ustawiamy limity dla grupy "realtime":
+
+       @realtime   -  rtprio     99
+       @realtime   -  memlock    unlimited
+
+    a następnie tworzymy tę grupę i dodajemy naszego użytkownika:
+
+       groupadd realtime
+       usermod -a -G realtime twoja_nazwa
+
+       chrt -p PRIORYTET PID
+       man chrt
+
+
