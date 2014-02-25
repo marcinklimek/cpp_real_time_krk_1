@@ -1,0 +1,1 @@
+/home/info/work/cpp_real_time_krk_41/day1/context-switch/build/CMakeFiles/context-switch.dir

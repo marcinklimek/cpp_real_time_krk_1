@@ -1,2 +1,3 @@
 
-/proc/sys/kernel/printk
+sudo sh -c "echo 6 > /proc/sys/kernel/printk"
+

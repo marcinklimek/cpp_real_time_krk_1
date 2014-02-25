@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/context-switch.dir/ctx_switch.cpp.o  -o context-switch -rdynamic -lpthread -lrt 

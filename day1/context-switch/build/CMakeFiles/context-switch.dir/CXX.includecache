@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/info/work/cpp_real_time_krk_41/day1/context-switch/ctx_switch.cpp
+iostream
+-
+vector
+-
+pthread.h
+-
+sys/time.h
+-
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+
