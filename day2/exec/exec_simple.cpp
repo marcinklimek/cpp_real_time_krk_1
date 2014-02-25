@@ -7,17 +7,21 @@
 
 using namespace std;
 
-int main( int arc, char *argv[] )
+int main( int argc, char *argv[] )
 {
 
     if ( argc > 1 )
     {
         struct sched_param param;
-        
+        param.sched_priority = 90;
 
-        execvp( argv[1], &argv[1] );
+        pid_t pid = getpid();
 
-        cout << "error" << endl;
+        sched_setscheduler( pid, SCHED_FIFO, &param);
+
+        execvp( argv[1], &argv[1] );  // a.out sleep 60
+
+        cout << "return" << endl;
         return 1;
     }
 
