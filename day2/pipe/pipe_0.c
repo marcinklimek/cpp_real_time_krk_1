@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MSGSIZE 16
+#define MSGSIZE 4
 
-char *msg1 = "hello, world #1";
-char *msg2 = "hello, world #2";
-char *msg3 = "hello, world #3";
+char *msg1 = "ABC";
+char *msg2 = "DEF";
+char *msg3 = "GHI";
 
 main()
 {
@@ -27,7 +27,8 @@ main()
     // odczytujemy z potoku
     for(j = 0; j < 3; j++)
     {
-        read(p[0], inbuf, MSGSIZE);
+        memset(inbuf, 0, sizeof(inbuf));
+        read(p[0], inbuf, 3);
         printf("%s\n", inbuf);
     }
     exit(0);
