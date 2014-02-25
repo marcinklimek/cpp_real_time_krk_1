@@ -11,7 +11,6 @@ int join(const char *com1[], const char *com2[])
 {
     int p[2], status;
 
-
     switch( fork() )
     {
     case -1:  // blad
@@ -39,8 +38,9 @@ int join(const char *com1[], const char *com2[])
 
     case 0:   // potomek
 
+        // ps ax
         // proces zapisu
-        dup2(p[1], 1);
+        dup2(p[1], fileno(stdout) );
 
         // zamykamy deskryptory
         close(p[0]);
@@ -52,8 +52,13 @@ int join(const char *com1[], const char *com2[])
         fatal("pierwsze wywolanie execvp w join");
 
     default:
+        // sort
         // proces odczytu
-        dup2(p[0], 0); // podlacz stdin do potoku
+        dup2(p[0], fileno(stdin)); // podlacz stdin do potoku
+
+        FILE* f = fopen("plik.txt", "a");
+        dup2( fileno( f ), fileno( stdout ) );
+        fclose( f );
 
         // zamykamy deskryptory
         close(p[0]);
@@ -64,11 +69,13 @@ int join(const char *com1[], const char *com2[])
     }
 }
 
+// ps ax | sort -g > ./plik.txt
+
 
 main()
 {
     const char *one[] = {"ps", "ax", NULL};
-    const char *two[] = {"sort", "-g", NULL};
+    const char *two[] = {"grep", "tty", NULL};
     int ret;
 
     ret = join(one, two);
