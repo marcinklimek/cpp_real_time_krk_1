@@ -7,6 +7,16 @@
 #include <linux/uaccess.h>
 #include <linux/spinlock.h>
 
+
+/*
+    cat /dev/char_test
+
+    echo "FOO" > /dev/char_test
+
+    sudo sh -c 'echo "sdfsfd" > /dev/char_test'
+
+*/
+
 #define DEVICE_NAME "char_test_device"
 #define CLASS_NAME "char_test"
 
@@ -16,7 +26,7 @@ static struct device* char_dev = NULL;
 
 #define SIZE 128
 
-char payload[ SIZE ] = "ABC\n";
+char payload[ SIZE + 1 ] = "ABC\n";
 
 static ssize_t char_read(struct file* file, char __user *buf,
                          size_t count, loff_t *ppos)
@@ -25,7 +35,6 @@ static ssize_t char_read(struct file* file, char __user *buf,
     
     printk( KERN_INFO "char_test, called char_read");
     
-    
     size = simple_read_from_buffer(buf, count, ppos, payload, strlen(payload)  );
     
     printk(KERN_INFO "SIZE %d", (int)size);
@@ -33,26 +42,31 @@ static ssize_t char_read(struct file* file, char __user *buf,
     return size;
 }
 
-/*
 
 static ssize_t char_write(struct file* file, const char __user *buf, size_t count, loff_t *ppos)
 {
+    ssize_t size;
+    
     printk( KERN_INFO "char_test, called char_write");
-    return 0;
+
+    memset(payload, 0, SIZE+1);
+
+    if ( count > SIZE )
+    {
+        size = simple_write_to_buffer( payload, SIZE, ppos, buf, count);
+    }
+    else
+    {
+        size = simple_write_to_buffer( payload, SIZE, ppos, buf, SIZE);
+    }
+
+    return size;
 }
 
 static struct file_operations char_fops =
 {
     .read = char_read,
     .write = char_write
-};
-
-*/
-
-
-static struct file_operations char_fops =
-{
-    .read = char_read,
 };
 
 static int __init char_init(void)
