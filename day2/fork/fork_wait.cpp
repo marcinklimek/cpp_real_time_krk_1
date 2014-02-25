@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <iostream>
 #include "unistd.h"
+#include "wait_info.h"
 
 using namespace std;
 
@@ -20,12 +21,13 @@ int main()
         cout.flush();
         sleep(10);
 
-        return 0;
+        return 1;
     }
 
 
     pid_t chld_pid = wait(&status);
 
-    
+    wait_info( chld_pid, status );
+
 
 }
