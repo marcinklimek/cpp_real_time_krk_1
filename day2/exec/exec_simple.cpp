@@ -12,7 +12,8 @@ int main( int arc, char *argv[] )
 
     if ( argc > 1 )
     {
-
+        struct sched_param param;
+        
 
         execvp( argv[1], &argv[1] );
 
