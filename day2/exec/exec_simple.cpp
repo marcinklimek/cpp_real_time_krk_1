@@ -7,6 +7,11 @@
 
 using namespace std;
 
+//TODO:
+// utworzyc proces potomny
+// wyswietlic pid nowego procesu
+// wyswietlic wartosc statusu
+
 int main( int argc, char *argv[] )
 {
 
