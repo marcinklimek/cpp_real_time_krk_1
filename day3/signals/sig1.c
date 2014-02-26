@@ -19,9 +19,11 @@ int main(int argc, char const *argv[])
     //action.sa_handler = catch_int;
     //sigaction( SIGINT, &action, NULL );
 
+    printf("PID: %d\n", getpid());
+
     signal( SIGINT, catch_int);
 
-    for( i=0; i<30; i++)
+    for( i=0; i<300; i++)
     {
         printf(".");
         fflush(stdout);

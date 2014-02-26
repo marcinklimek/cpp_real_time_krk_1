@@ -5,7 +5,6 @@
 void catch_int(int signum)
 {
     printf("Handler %d\n", signum);
-    _exit(1);
 }
 
 
