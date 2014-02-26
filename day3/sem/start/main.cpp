@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include <string.h>
+#include <stdio.h>
 
 typedef union _semun
 {
@@ -41,8 +42,12 @@ int main(int argc, char **argv)
     sem_info.sem_num =  0;
     sem_info.sem_op  = -1;
     sem_info.sem_flg = SEM_UNDO;
+    printf("LOCK 1\n");
     semop( semid, &sem_info, 1);
 
+    printf("LOCK 2\n");
+    semop( semid, &sem_info, 1);
+    printf("LOCK 3\n");
 
     std::cout << semctl( semid, 0, GETVAL, 0) << std::endl;
 
