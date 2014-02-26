@@ -10,7 +10,6 @@
 
 typedef struct
 {
-
     long type;
     char data[MSG_SIZE];
 } message_t;
