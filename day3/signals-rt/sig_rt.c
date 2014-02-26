@@ -22,7 +22,9 @@ int main(int argc, char const *argv[])
     sa.sa_handler = handler;
     sigaction( SIGRTMIN, &sa, NULL);
 
-    for(i = 0; i<5; i++)
+    printf("PID: %d\n", getpid());
+
+    for(i = 0; i<10; i++)
     {
         printf(".");
         fflush(stdout);

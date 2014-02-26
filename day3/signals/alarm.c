@@ -23,12 +23,12 @@ static void sighandler( int signum )
 void set_alarm( int seconds )
 {
   alarmed = 0;
-  signal( SIGALRM, sighandler );
+  signal( SIGALRM, handler );
   alarm( seconds );
   seconds_h = seconds;
 }
 
-main() 
+int main() 
 {
   set_alarm(1);
 
