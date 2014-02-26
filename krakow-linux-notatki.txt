@@ -63,3 +63,15 @@
        man chrt
 
 
+
+
+# linki
+
+	sortowanie i branch prediction:
+	http://stackoverflow.com/questions/11227809/why-is-processing-a-sorted-array-faster-than-an-unsorted-array
+
+	what every programmer should know about memory:
+	http://lwn.net/Articles/250967/
+
+
+   
