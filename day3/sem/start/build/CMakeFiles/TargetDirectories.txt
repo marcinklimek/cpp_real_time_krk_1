@@ -1,1 +1,0 @@
-/home/info/work/cpp_real_time_krk_41/day3/sem/start/build/CMakeFiles/sem.dir

@@ -1,1 +1,0 @@
-/usr/bin/c++       CMakeFiles/sem.dir/main.o  -o sem -rdynamic 
