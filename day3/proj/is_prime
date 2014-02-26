@@ -1,0 +1,8 @@
+    int is_prime(int v)
+    {
+        for(int d=2; d<v; ++d)
+            if( v % d == 0)
+                return false;
+
+        return true;
+    }
