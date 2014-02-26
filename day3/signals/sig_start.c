@@ -15,6 +15,8 @@ int main(int argc, char const *argv[])
     static struct sigaction old_action;
     sigset_t set1, set2;
 
+    printf("PID: %d\n", getpid());
+
 
     action.sa_handler = catch_int;
     sigaction( SIGINT, &action, &old_action);
@@ -36,8 +38,11 @@ int main(int argc, char const *argv[])
     sigprocmask( SIG_SETMASK, &set2, NULL);
     //raise( SIGINT );
 
-    printf("KONIEC\n");
 
+    printf("Ignorowanie USR2\n");
+
+    if( signal(SIGUSR2, SIG_IGN) == SIG_ERR )
+        errExit("Error SIGUSR1 IGN");
 
     for( i=0; i<30; i++)
     {
@@ -46,5 +51,8 @@ int main(int argc, char const *argv[])
         sleep(1);
     }
    
+
+    printf("KONIEC\n");
+
     return 0;
 }
