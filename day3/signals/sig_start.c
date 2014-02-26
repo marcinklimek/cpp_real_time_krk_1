@@ -44,12 +44,7 @@ int main(int argc, char const *argv[])
     if( signal(SIGUSR2, SIG_IGN) == SIG_ERR )
         errExit("Error SIGUSR1 IGN");
 
-    for( i=0; i<30; i++)
-    {
-        printf(".");
-        fflush(stdout);
-        sleep(1);
-    }
+    pause();
    
 
     printf("KONIEC\n");

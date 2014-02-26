@@ -1,0 +1,1 @@
+/home/info/work/cpp_real_time_krk_41/day3/signal_backtrace/build/CMakeFiles/test.dir
