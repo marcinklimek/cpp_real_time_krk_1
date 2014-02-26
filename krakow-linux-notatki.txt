@@ -62,9 +62,6 @@
        chrt -p PRIORYTET PID
        man chrt
 
-
-
-
 # linki
 
 	sortowanie i branch prediction:
@@ -74,4 +71,13 @@
 	http://lwn.net/Articles/250967/
 
 
-   
+# IPC SysV
+
+  //QUEUE
+  msgctl( msqid, IPC_RMID, 0 );
+
+  //SEM
+  semctl( semid, 0, IPC_RMID );
+
+  //SHMEM
+  shmctl(shmid, IPC_RMID, 0);   
