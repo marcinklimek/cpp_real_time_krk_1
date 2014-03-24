@@ -1,28 +1,29 @@
 # login haslo
 
-   devel  /  dev 
-
+   devel  /  dev (144) 
+             
 
 # reinstalacja dodatków do VBox
 
     sudo /etc/init.d/vboxadd setup
 
 
+
 # ustawienie proxy
 
     Najwygodniej jest dodac wpis w pliku .profile
 
-    export http_proxy=http://10.144.1.10:8080
-    export https_proxy=https://10.144.1.10:8080
+    export http_proxy=http://10.xxx.1.10:8080
+    export https_proxy=https://10.xxx.1.10:8080
 
 
 # ustawienie proxy dla APT
 
     /etc/apt/apt.conf
 
-    Acquire::http::proxy "http://10.144.1.10:8080/";
-    Acquire::https::proxy "https://10.144.1.10:8080/";
-    Acquire::ftp::proxy "ftp://10.144.1.10:8080/";
+    Acquire::http::proxy "http://10.xxx.1.10:8080/";
+    Acquire::https::proxy "https://10.xxx.1.10:8080/";
+    Acquire::ftp::proxy "ftp://10.xxx.1.10:8080/";
 
 
 # test polaczenia
